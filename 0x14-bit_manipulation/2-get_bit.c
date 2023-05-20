@@ -1,15 +1,21 @@
+
 #include "main.h"
+
 /**
- * get_bit - gets the bit at the index
- * @n: the bumber to index
- * @index: the bit to get
+ * get_bit - returns the value of a bit at an index in a decimal number
+ * @n: number to search
+ * @index: index of the bit
  *
- * Return: the bit state or -1 on error
+ * Return: value of the bit
  */
 int get_bit(unsigned long int n, unsigned int index)
 {
-	if (index >= sizeof(n) * 8)
-		return (-1)
+	int bit_val;
 
-	return (n >> index &1)
+	if (index > 63)
+		return (-1);
+
+	bit_val = (n >> index) & 1;
+
+	return (bit_val);
 }
